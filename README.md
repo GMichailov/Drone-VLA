@@ -21,3 +21,6 @@ From Nemotron 3 Paper Ideas (https://arxiv.org/pdf/2512.20856)
 My Ideas
 - Train LM that is lemmized and doesn't use words like the or a unless necessary.
 - Create a framework for mapping somehow.
+- I assume SMEM will be an even bigger bottleneck relative to HBM and compute will be signifigicantly lower so:
+  - If compute bottleneck: Reduce d_model and reduce input sequence length. Use GQA and vLLM. Reduce FFN expansion from 4x to 2x. Sparse Attention.
+  - If SMEM bottleneck: Reduce tile size in kernels and reduce head dimensions.  
