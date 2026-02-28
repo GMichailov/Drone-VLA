@@ -18,6 +18,11 @@ From Nemotron 3 Paper Ideas (https://arxiv.org/pdf/2512.20856)
     - Significantly lower memory and compute requirements.
     - Mamba Layers kept in MXFP8 rather quantizing any further.
  
+From MoE Router coupling via auxiliary loss method (https://arxiv.org/pdf/2512.23447)
+- Add the ERC auxiliary loss to make sure router most efficiently routes to experts and that experts are truly experts in this task.
+  - Router embedding gets passed through each expert with goal of each router embedding having the highest activation score for its own expert and lower for those it is not related to. This enforced true expert specilization and less arbitrary routing aka higher accuracy which is crucial with a small model.
+
+ 
 My Ideas
 - Train LM that is lemmized and doesn't use words like the or a unless necessary.
 - Create a framework for mapping somehow.
